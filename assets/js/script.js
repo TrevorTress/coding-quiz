@@ -6,6 +6,10 @@ var answerButtonsEl = document.getElementById('answer-buttons')
 
 // click start = start game
 startButton.addEventListener('click', startGame)
+nextButton.addEventListener('click', () => {
+    currentQuestionIndex ++
+    advanceQuestion()
+})
 
 function startGame() {
     // hide the start button
@@ -59,25 +63,40 @@ function resetQuestion() {
 }
 
 function selectAnswer(event) {
+    // id what was clicked and assign value of correct to it
     var selectedButton = event.target
     var correct = selectedButton.dataset.correct
     setStatusClass(document.body, correct)
     Array.from(answerButtonsEl.children).forEach(button => {
         setStatusClass(button, button.dataset.correct)
     })
+    if (questionOrder.length > currentQuestionIndex + 1) {
+        nextButton.classList.remove('hide')
+    } else {
+        startButton.innerText = 'Restart?'
+        startButton.classList.remove('hide')
+    }
+    
 }
 
 function setStatusClass(element, correct) {
     clearStatusClass(element)
     if (correct) {
         element.classList.add('correct')
+    } else {
+        element.classList.add('wrong')
     }
+}
+
+function clearStatusClass(element) {
+    element.classList.remove('correct')
+    element.classList.remove('wrong')
 }
 
 // array of question objects with answers
 var questions = [
     {
-        question: 'This is Question 1?',
+        question: 'The answer to this is 1',
         answers: [
             {text: '1', correct: true},
             {text: '2', correct: false},
@@ -87,32 +106,32 @@ var questions = [
     },
 
     {
-        question: 'This is Question 2?',
+        question: 'The answer to this is 2',
         answers: [
-            {text: '1', correct: true},
-            {text: '2', correct: false},
+            {text: '1', correct: false},
+            {text: '2', correct: true},
             {text: '3', correct: false},
             {text: '4', correct: false}
         ]
     },
 
     {
-        question: 'This is Question 3?',
+        question: 'The answer to this is 3',
         answers: [
-            {text: '1', correct: true},
+            {text: '1', correct: false},
             {text: '2', correct: false},
-            {text: '3', correct: false},
+            {text: '3', correct: true},
             {text: '4', correct: false}
         ]
     },
 
     {
-        question: 'This is Question 4?',
+        question: 'The answer to this is 4',
         answers: [
-            {text: '1', correct: true},
+            {text: '1', correct: false},
             {text: '2', correct: false},
             {text: '3', correct: false},
-            {text: '4', correct: false}
+            {text: '4', correct: true}
         ]
     }
 ]
