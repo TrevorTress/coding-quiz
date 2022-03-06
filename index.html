@@ -9,17 +9,31 @@
 </head>
 
 <body>
+    <div class = 'container title'>ULTIMATE QUIZ CHALLENGE OF DOOM</div>
     <div class = 'container'>
-      <div id = 'question-container' class = 'hide'>
-          <div id="question">Question</div>
-          <div id="answer-buttons" class="btn-grid">
-          </div>
-      </div>
-      <div class = 'controls'>
-          <button id="start-btn" class="start-btn btn">Start</button>
-          <button id="next-btn" class="next-btn btn hide">Next</button>
-      </div>
+        <p id="countdown" class="countdown">5:00</p>
+        <div id = 'question-container' class = 'hide'>
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+            </div>
+        </div>
+        <div class = 'controls'>
+            <button id="start-btn" class="start-btn btn">Start</button>
+            <button id="next-btn" class="next-btn btn hide">Next</button>
+            <button id="submit-btn" class="submit-btn btn hide">Submit Score?</button>
+        </div>
     </div>
+    
+    <div class = 'container form hide' id="submit-box">
+        <label for="input">initials</label>
+        <input type="text" id="name-input">
+        <button id="save-btn" class="btn save-btn">Save Score</button>
+    </div>
+
+    <div class = 'container high-scores' id="leaderboard">
+        <ul></ul>
+    </div>
+    
 </body>
 <script src="./assets/js/script.js"></script>
 </html>

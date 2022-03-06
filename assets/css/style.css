@@ -13,11 +13,12 @@ body {
     padding: 0;
     margin: 0;
     display: flex;
+    flex-direction: column;
     width: 100vw;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    background-color: aquamarine;
+    background-color: grey;
 }
 
 .container {
@@ -73,4 +74,36 @@ body {
 
 .hide {
     display: none;
+}
+
+.form {
+    margin-top: 10px;
+}
+
+.save-btn {
+    float: right;
+}
+
+.form input {  
+    width: 40px;  
+}
+
+.countdown {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left: 5px;
+    float: right;
+    text-align: center;
+    font-weight: bolder;
+    display: inline-block;
+}
+
+.title {
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: bolder;
+    background-color: plum;
+}
+
+.high-scores {
+    margin-top: 10px;
 }
